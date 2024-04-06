@@ -1,0 +1,8 @@
+version: '3'
+services:
+  stock-valuation-aws:
+    build:
+      context: .
+    volumes:
+      - ".:/work"
+      - "~/.m2:root/.m2"
