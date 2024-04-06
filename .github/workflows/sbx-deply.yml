@@ -1,0 +1,16 @@
+name: Sandbox Deploy
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  sbx-deploy:
+    name: Deploy to sbx
+    runs-on: unbuntu-latest
+    steps:
+      - name: Hello World
+        run: |
+          echo "Hello World!"
