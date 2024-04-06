@@ -9,8 +9,20 @@ permissions:
 jobs:
   sbx-deploy:
     name: Deploy to sbx
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Hello World
         run: |
           echo "Hello World!"
+
+  configure-aws-credentials:
+    name: Configure AWS Credentials
+    runs-on: ubuntu-latest  # Runner OS for workflow steps
+    steps:
+      - uses: actions/checkout@v4  # Checks out code from repository
+
+      - uses: aws-actions/configure-aws-credentials@v1  # Configures AWS credentials
+        with:
+          aws-region: us-east-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}  # Access Key from GitHub Secrets
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  # Secret Key from GitHub Secrets
