@@ -1,6 +1,6 @@
 version: '3'
 services:
-  stock-valuation-aws:
+  docker-aws-scripts:
     build:
       context: .
     volumes:

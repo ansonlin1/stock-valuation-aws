@@ -7,22 +7,15 @@ permissions:
   id-token: write
 
 jobs:
-  sbx-deploy:
-    name: Deploy to sbx
-    runs-on: ubuntu-latest
-    steps:
-      - name: Hello World
-        run: |
-          echo "Hello World!"
+  build:
+    uses: ansonlin1/stock-valuation-aws/.github/workflows/worflow-cdk-build.yml@main
 
-  configure-aws-credentials:
-    name: Configure AWS Credentials
-    runs-on: ubuntu-latest  # Runner OS for workflow steps
-    steps:
-      - uses: actions/checkout@v4  # Checks out code from repository
-
-      - uses: aws-actions/configure-aws-credentials@v1  # Configures AWS credentials
-        with:
-          aws-region: us-east-1
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}  # Access Key from GitHub Secrets
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  # Secret Key from GitHub Secrets
+  deploy:
+    needs: build
+    uses: ansonlin1/stock-valuation-aws/.github/workflows/worflow-cdk-deploy.yml@main
+    with:
+      account_name: anson-sandbox
+      ENV_NAME: sbx
+      REGION: us-east-1
+      ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}
+      STAGE_TYPE: primary

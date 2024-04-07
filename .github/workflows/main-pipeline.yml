@@ -10,10 +10,13 @@ permissions:
   id-token: write
 
 jobs:
-  prd-deploy:
-    name: Deploy to prd
+  hello-world:
+    name: Hello World
     runs-on: unbuntu-latest
     steps:
       - name: Hello World
         run: |
           echo "Hello World!"
+
+  build:
+    uses: ansonlin1/stock-valuation-aws/.github/workflows/worflow-cdk-build.yml@main
