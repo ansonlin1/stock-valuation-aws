@@ -5,7 +5,7 @@ USER root
 SHELL ["/bin/bash", "-c"]
 
 WORKDIR /work
-ADD ..
+ADD . .
 
 RUN bash -c "rm /home/glue_user/spark/conf/hive-site.xml"
 
@@ -23,3 +23,5 @@ ENV PATH $PATH:/home/glue_user/spark/bin
 
 ENTRYPOINT []
 # CMD bash -c 'pytest --cov-report= --cov=/work/software/src/ /work/software/tests/'
+# wsl --restart
+# wsl --shutdown
