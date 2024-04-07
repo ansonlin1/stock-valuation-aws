@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   build:
-    uses: ansonlin1/stock-valuation-aws/.github/workflows/worflow-cdk-build.yml@aws-deploy
+    uses: ./.github/workflows/workflow-cdk-build.yml
 
 #  deploy:
 #    needs: build
