@@ -10,7 +10,7 @@ create-infrastructure-venv:
 	chmod 755 infrastructure/.venv/bin/activate
 	( \
 		source infrastructure/.venv/bin/activate; \
-		python3 -m -pip install -r infrastructure/requirements.txt -r requirements-validation.txt; \
+		python3 -m pip install -r infrastructure/requirements.txt -r requirements-validation.txt; \
 	)
 
 create-e2e-tests-venv:
@@ -18,7 +18,7 @@ create-e2e-tests-venv:
 	chmod 755 e2e/.venv/bin/activate
 	( \
 		source e2e/.venv/bin/activate; \
-		python3 -m -pip install -r e2e/requirements.txt; \
+		python3 -m pip install -r e2e/requirements.txt; \
 	)
 
 run-software-validations:
