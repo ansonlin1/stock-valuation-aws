@@ -1,7 +1,7 @@
 name: Deploy Run
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       account_name:
         required: true
