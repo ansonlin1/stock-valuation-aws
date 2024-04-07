@@ -10,12 +10,12 @@ jobs:
   build:
     uses: ansonlin1/stock-valuation-aws/.github/workflows/worflow-cdk-build.yml@main
 
-  deploy:
-    needs: build
-    uses: ansonlin1/stock-valuation-aws/.github/workflows/worflow-cdk-deploy.yml@main
-    with:
-      account_name: anson-sandbox
-      ENV_NAME: sbx
-      REGION: us-east-1
-      ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}
-      STAGE_TYPE: primary
+#  deploy:
+#    needs: build
+#    uses: ansonlin1/stock-valuation-aws/.github/workflows/worflow-cdk-deploy.yml@main
+#    with:
+#      ACCOUNT_NAME: anson-sandbox
+#      ENV_NAME: sbx
+#      REGION: us-east-1
+#      ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}
+#      STAGE_TYPE: primary
