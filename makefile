@@ -33,7 +33,7 @@ run-software-coverage:
 	echo "Run software coverage..."
 	docker-compose run docker-aws-scripts ./do/coverage.sh
 
-create-infrastructure-validations: create-infrastructure-venv
+run-infrastructure-validations: create-infrastructure-venv
 	chmod 755 infrastructure/.venv/bin/activate
 	( \
 		source infrastructure/.venv/bin/activate; \
@@ -45,7 +45,7 @@ create-infrastructure-validations: create-infrastructure-venv
 		pylint infrastructure/app.py infrastructure/lib/; \
 	)
 
-create-infrastructure-tests: create-infrastructure-venv
+run-infrastructure-tests: create-infrastructure-venv
 	chmod 755 infrastructure/.venv/bin/activate
 	( \
 		source infrastructure/.venv/bin/activate; \
@@ -55,7 +55,7 @@ create-infrastructure-tests: create-infrastructure-venv
 		pytest --cov-report= --cov=infrastructure/lib/ infrastructure/tests/; \
 	)
 
-create-infrastructure-coverage:
+run-infrastructure-coverage:
 	chmod 755 infrastructure/.venv/bin/activate
 	( \
 		source infrastructure/.venv/bin/activate; \
