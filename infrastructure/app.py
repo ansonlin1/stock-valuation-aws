@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 
-from aws_stack import App, Environment
+from aws_cdk import App, Environment
 
 from lib.stages.stage import AwsStage
 
