@@ -1,4 +1,4 @@
-from aws_cdk import Environment, Stage, Tags
+from aws_cdk import Environment, Stage
 from constructs import Construct
 
 from lib.stacks.stack import AwsStack

@@ -10,8 +10,7 @@ import yaml
 def deploy_glue_resources(
         handlers: [str],
         deployment_artifact_prefix: str,
-        src_directory: str,
-        division: str = ''
+        src_directory: str
 ) -> None:
     artifact_bucket_name = ''
 
@@ -34,7 +33,7 @@ def deploy_glue_resources(
         last_slash_location = file.rfind('/')
         destination_key = f'{deployment_artifact_prefix}/{file[last_slash_location + 1:]}'
 
-        boto3.clint('s3').upload_file(
+        boto3.client('s3').upload_file(
             Bucket=artifact_bucket_name,
             Key=destination_key,
             Filename=file

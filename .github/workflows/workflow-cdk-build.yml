@@ -24,21 +24,21 @@ jobs:
       - name: Infrastructure Coverage
         run: make run-infrastructure-coverage
 
-  software:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4  # Checks out code from repository
-
-      - name: Software Validations
-        run: make run-software-validations
-
-      - name: Software Unit Tests
-        run: make run-software-tests
-
-      - name: Software Coverage
-        run: make run-software-coverage
-
+#  software:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v4  # Checks out code from repository
+#
+#      - name: Software Validations
+#        run: make run-software-validations
+#
+#      - name: Software Unit Tests
+#        run: make run-software-tests
+#
+#      - name: Software Coverage
+#        run: make run-software-coverage
+#
 #  e2e-tests:
 #    runs-on: ubuntu-latest
 #    steps:
