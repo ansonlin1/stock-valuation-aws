@@ -52,7 +52,7 @@ run-infrastructure-tests: create-infrastructure-venv
 		export PYTHONPATH=./infrastructure/; \
 		\
 		echo "Run pytest on infrastructure..."; \
-		pytest --cov-report= --cov=infrastructure/lib/ infrastructure/tests/; \
+		pytest --cov-report= --cov=infrastructure/lib/stacks/ infrastructure/lib/stages/ infrastructure/tests/; \
 	)
 
 run-infrastructure-coverage:
