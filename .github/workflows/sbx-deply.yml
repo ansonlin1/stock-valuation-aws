@@ -10,12 +10,12 @@ jobs:
   build:
     uses: ./.github/workflows/workflow-cdk-build.yml
 
-#  deploy:
-#    needs: build
-#    uses: ./.github/workflows/workflow-cdk-deploy.yml
-#    with:
-#      ACCOUNT_NAME: anson-sandbox
-#      ENV_NAME: sbx
-#      REGION: us-east-1
-#      ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}
-#      STAGE_TYPE: primary
+  deploy:
+    needs: build
+    uses: ./.github/workflows/workflow-cdk-deploy.yml
+    with:
+      ACCOUNT_NAME: anson-sandbox
+      ENV_NAME: sbx
+      REGION: us-east-1
+      ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}
+      STAGE_TYPE: primary
