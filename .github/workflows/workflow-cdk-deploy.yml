@@ -61,6 +61,10 @@ jobs:
       - name: Synthesize Templates
         env:
           ACCOUNT_NAME: ${{ inputs.ACCOUNT_NAME }}
+          ACCOUNT_NUMBER: ${{ inputs.ACCOUNT_NUMBER }}
+          ENV_NAME: ${{ inputs.ENV_NAME }}
+          REGION: ${{ inputs.REGION }}
+          STAGE_TYPE: ${{ inputs.STAGE_TYPE }}
         run: make cdk-synth
 
       - name: Save Artifacts with Workflow Run
