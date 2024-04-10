@@ -17,5 +17,6 @@ jobs:
       ACCOUNT_NAME: anson-sandbox
       ENV_NAME: sbx
       REGION: us-east-1
-      ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}
       STAGE_TYPE: primary
+    secrets:
+      ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}

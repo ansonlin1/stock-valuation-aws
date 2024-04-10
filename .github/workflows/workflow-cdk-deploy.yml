@@ -3,7 +3,7 @@ name: Deploy Run
 on:
   workflow_call:
     inputs:
-      account_name:
+      ACCOUNT_NAME:
         required: true
         description: Account Name
         type: string
@@ -20,6 +20,9 @@ on:
         description: CDK Out Path
         type: string
         default: infrastructure/cdk.out
+    secrets:
+      ACCOUNT_NUMBER:
+        required: true
 
 jobs:
   deploy:
@@ -53,17 +56,17 @@ jobs:
 
       - name: Synthesize Templates
         env:
-          ACCOUNT_NAME: ${{ inputs.account_name }}
+          ACCOUNT_NAME: ${{ inputs.ACCOUNT_NAME }}
         run: make cdk-synth
 
       - name: Save Artifacts with Workflow Run
         uses: actions/upload-artifact@v4
         with:
-          name: CfnTemplates-${{ inputs.account_name }}-${{ inputs.ENV_NAME }}-primary
+          name: CfnTemplates-${{ inputs.ACCOUNT_NAME }}-${{ inputs.ENV_NAME }}-primary
           path: ${{ inputs.CDK_OUT_PATH }}/assembly-*
           retention-days: 7
 
 #      - name: Deploy CDK Templates
 #        env:
-#          ACCOUNT_NAME: ${{ inputs.account_name }}
+#          ACCOUNT_NAME: ${{ inputs.ACCOUNT_NAME }}
 #        run: make cdk-deploy arg1=${{ inputs.ENV_NAME }}-primary
