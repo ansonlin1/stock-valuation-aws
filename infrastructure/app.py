@@ -30,7 +30,7 @@ def main():
         '../software/src/...'
     ]
 
-    if not os.environ.get('SYNTH'):  # Set SYNTH to False to deploy glue resources
+    if not os.environ.get('SYNTH'):  # Don't set SYNTH to deploy glue resources
         src_dir_path = '../software/src'
         deploy_glue_resources(glue_job_handler_files, glue_etl_src_location, src_dir_path)
 

@@ -16,6 +16,8 @@ def mock_environ():
                         "ENV_NAME": "some-env",
                         "REGION": "some-region",
                         "STAGE_TYPE": "some-stage",
+                        "GITHUB_REPO_NAME": "some-repo",
+                        "SYNTH": "some-synth",
                     }
                     ) as mock_environ:
         yield mock_environ
