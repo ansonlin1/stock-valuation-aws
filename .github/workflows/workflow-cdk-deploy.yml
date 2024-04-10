@@ -82,7 +82,7 @@ jobs:
           path: ${{ inputs.CDK_OUT_PATH }}/assembly-*
           retention-days: 7
 
-#      - name: Deploy CDK Templates
-#        env:
-#          ACCOUNT_NAME: ${{ inputs.ACCOUNT_NAME }}
-#        run: make cdk-deploy arg1=${{ inputs.ENV_NAME }}-${{ inputs.STAGE_TYPE }}
+      - name: Deploy CDK Templates
+        env:
+          ACCOUNT_NAME: ${{ inputs.ACCOUNT_NAME }}
+        run: make cdk-deploy arg1=${{ inputs.ENV_NAME }}-${{ inputs.STAGE_TYPE }}
