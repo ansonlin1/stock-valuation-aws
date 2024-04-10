@@ -22,7 +22,7 @@ def mock_environ():
 
 
 @pytest.mark.parametrize("resource_type, count", [
-    ("AWS::S3::Bucket", 1)
+    ("AWS::Lambda::Function", 1)
 ])
 def test_stack_creates_correct_resource_count(resource_type, count):
     main()
