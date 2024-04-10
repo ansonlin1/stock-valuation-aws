@@ -5,4 +5,4 @@ services:
       context: .
     volumes:
       - ".:/work"
-      - "~/.m2:root/.m2"
+      - "~/.m2:/var/lib/m2"
