@@ -11,11 +11,11 @@ from app import main
 def mock_environ():
     with patch.dict("app.os.environ",
                     {
-                        "ACCOUNT_NAME": "",
-                        "ACCOUNT_NUM": "",
-                        "ENV_NAME": "",
-                        "REGION": "",
-                        "STAGE_TYPE": "",
+                        "ACCOUNT_NAME": "some-account",
+                        "ACCOUNT_NUM": "123456",
+                        "ENV_NAME": "some-env",
+                        "REGION": "some-region",
+                        "STAGE_TYPE": "some-stage",
                     }
                     ) as mock_environ:
         yield mock_environ
