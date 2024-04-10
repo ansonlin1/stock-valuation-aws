@@ -15,6 +15,10 @@ on:
         required: true
         description: Primary Region
         type: string
+      STAGE_TYPE:
+        required: true
+        description: Stage Type
+        type: string
       CDK_OUT_PATH:
         required: false
         description: CDK Out Path
@@ -62,11 +66,11 @@ jobs:
       - name: Save Artifacts with Workflow Run
         uses: actions/upload-artifact@v4
         with:
-          name: CfnTemplates-${{ inputs.ACCOUNT_NAME }}-${{ inputs.ENV_NAME }}-primary
+          name: CfnTemplates-${{ inputs.ACCOUNT_NAME }}-${{ inputs.ENV_NAME }}-${{ inputs.STAGE_TYPE }}
           path: ${{ inputs.CDK_OUT_PATH }}/assembly-*
           retention-days: 7
 
 #      - name: Deploy CDK Templates
 #        env:
 #          ACCOUNT_NAME: ${{ inputs.ACCOUNT_NAME }}
-#        run: make cdk-deploy arg1=${{ inputs.ENV_NAME }}-primary
+#        run: make cdk-deploy arg1=${{ inputs.ENV_NAME }}-${{ inputs.STAGE_TYPE }}
