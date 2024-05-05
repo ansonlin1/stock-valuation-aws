@@ -7,10 +7,18 @@ permissions:
   id-token: write
 
 jobs:
-  sbx-deploy:
-    name: Deploy to sbx
-    runs-on: unbuntu-latest
-    steps:
-      - name: Hello World
-        run: |
-          echo "Hello World!"
+  build:
+    uses: ./.github/workflows/workflow-cdk-build.yml
+
+  deploy:
+    needs: build
+    uses: ./.github/workflows/workflow-cdk-deploy.yml
+    with:
+      ACCOUNT_NAME: anson-sandbox
+      ACCOUNT_NUMBER: 637423657069
+      ENV_NAME: sbx
+      REGION: us-east-1
+      STAGE_TYPE: primary
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

@@ -8,12 +8,17 @@ permissions:
   contents: write
   pull-requests: read
   id-token: write
+  checks: write
+  actions: read
 
 jobs:
-  prd-deploy:
-    name: Deploy to prd
+  hello-world:
+    name: Hello World
     runs-on: unbuntu-latest
     steps:
       - name: Hello World
         run: |
           echo "Hello World!"
+
+  build:
+    uses: ./.github/workflows/workflow-cdk-build.yml
