@@ -21,4 +21,4 @@ jobs:
           echo "Hello World!"
 
   build:
-    uses: ansonlin1/stock-valuation-aws/.github/workflows/worflow-cdk-build.yml@main
+    uses: ./.github/workflows/workflow-cdk-build.yml
