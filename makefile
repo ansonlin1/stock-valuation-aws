@@ -70,7 +70,7 @@ cdk-synth: create-infrastructure-venv
 	chmod 755 infrastructure/.venv/bin/activate
 	( \
 		source infrastructure/.venv/bin/activate; \
-		cd infrastructure && cdk synth; \
+		cd infrastructure && cdk bootstrap && cdk synth; \
 	)
 
 cdk-deploy: create-infrastructure-venv
